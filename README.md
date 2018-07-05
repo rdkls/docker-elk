@@ -257,3 +257,83 @@ logstash:
   environment:
     LS_JAVA_OPTS: "-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.port=18080 -Dcom.sun.management.jmxremote.rmi.port=18080 -Djava.rmi.server.hostname=DOCKER_HOST_IP -Dcom.sun.management.jmxremote.local.only=false"
 ```
+
+
+## Notes - Logtrail Setup
+
+Requires no changes in ES itself, just Logstash and Kibana (and clients to ship logs)
+
+### 1. Logstash - Install and config beats input
+
+Dockerfile line:
+
+```
+RUN logstash-plugin install logstash-input-beats
+RUN logstash-plugin install logstash-input-lumberjack
+RUN logstash-plugin install logstash-input-http
+```
+
+config in pipeline/logstash.conf
+```json
+input {
+  beats {
+    port => 5044
+  }
+}
+```
+
+Also ensure logstash container has port 5044 forwarded
+
+### 2. Kibana - Install Logtrail plugin
+
+Dockerfile line:
+
+```
+RUN kibana-plugin install https://github.com/sivasamyk/logtrail/releases/download/v0.1.20/logtrail-5.5.3-0.1.20.zip
+```
+
+(or whatever version relevant to you - see https://github.com/sivasamyk/logtrail/releases)
+
+Config - plugins/logtrail/logtrail.json
+
+Note default config wil probably have incorrect field mappings - check this - symptom will be no events showing in Logtrail even though the data is there
+
+Example config
+```json
+{
+  "version" : 1,
+  "index_patterns" : [
+    {
+      "es": {
+        "default_index": "filebeat-*"
+      },
+      "tail_interval_in_seconds": 10,
+      "es_index_time_offset_in_seconds": 0,
+      "display_timezone": "local",
+      "display_timestamp_format": "MMM DD HH:mm:ss",
+      "max_buckets": 500,
+      "default_time_range_in_days" : 0,
+      "max_hosts": 100,
+      "max_events_to_keep_in_viewer": 5000,
+      "fields" : {
+        "mapping" : {
+            "timestamp" : "@timestamp",
+            "hostname" : "beat.hostname",
+            "program": "source",
+            "message": "message"
+        },
+        "message_format": "{{{source}}} {{{message}}}"
+      },
+      "color_mapping" : {
+      }
+    }
+  ]
+}
+```
+
+### Client - Install beats
+
+- Filebeat https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html
+- Packetbeat https://www.elastic.co/guide/en/beats/packetbeat/current/packetbeat-installation.html
+
+And ship to localhost:5044
