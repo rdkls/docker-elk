@@ -44,6 +44,16 @@ services:
     depends_on:
       - elasticsearch
 
+  packetbeat:
+    image: docker.elastic.co/beats/packetbeat:6.3.0
+    volumes:
+      - ./packetbeat/config/packetbeat.yml:/usr/share/packetbeat/packetbeat.yml:ro
+    network_mode: host
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - "5066:5066"
+
 networks:
 
   elk:

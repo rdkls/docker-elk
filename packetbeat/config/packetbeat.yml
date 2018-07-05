@@ -1,0 +1,66 @@
+http.enabled: true
+http.port: 5066
+
+# Load kibana default dashboards - relies on kibana api which is not available in 5.5.3
+#setup.dashboards.enabled: true
+#setup.dashboards.beat: '' # all
+#setup.kibana.host: "localhost:5601"
+
+
+packetbeat.interfaces.device: any
+
+packetbeat.flows:
+  timeout: 30s
+  period: 10s
+
+packetbeat.protocols:
+  - type: icmp
+
+  - type: dns
+    ports: [53]
+    include_authorities: true
+    include_additionals: true
+
+  - type: http
+    ports: [80, 5601, 9200, 8080, 8081, 5000, 8002]
+    hide_keywords: ['pass', 'password', 'passwd']
+
+  - type: tls
+    ports: [443]
+
+  - type: nfs
+    ports: [2049]
+
+  - type: memcache
+    ports: [11211]
+
+  - type: mysql
+    ports: [3306]
+
+  - type: pgsql
+    ports: [5432]
+
+  - type: redis
+    ports: [6379]
+
+  - type: thrift
+    ports: [9090]
+
+  - type: mongodb
+    ports: [27017]
+
+  - type: cassandra
+    ports: [9042]
+
+processors:
+- add_cloud_metadata:
+
+  #output.logstash:
+  #hosts: ['localhost:5044']
+
+output.elasticsearch:
+  hosts: ['localhost:9200']
+  #hosts: ['elasticsearch:9200']
+  #username: elastic
+  #password: changeme
+
