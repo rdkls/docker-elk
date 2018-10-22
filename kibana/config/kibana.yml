@@ -5,3 +5,11 @@
 server.name: kibana
 server.host: "0"
 elasticsearch.url: http://elasticsearch:9200
+
+regionmap:
+  layers:
+    - name: "Milano Grid"
+      url: "http://localhost:5601/bundles/milano-grid.geojson"
+      fields:
+        - name: "cellId"
+          description: "Grid ID"

@@ -1,0 +1,106 @@
+[
+  {
+    "_id": "59b35c00-80db-11e8-aa73-ef7f31994eb4",
+    "_type": "dashboard",
+    "_source": {
+      "title": "Milan Traffic",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"panelIndex\":\"1\",\"gridData\":{\"x\":0,\"y\":0,\"w\":12,\"h\":6,\"i\":\"1\"},\"embeddableConfig\":{\"mapZoom\":12,\"mapCenter\":[45.46687287100197,9.179935455322267]},\"id\":\"9f14a8f0-80d9-11e8-aa73-ef7f31994eb4\",\"type\":\"visualization\",\"version\":\"6.2.4\"},{\"panelIndex\":\"3\",\"gridData\":{\"x\":0,\"y\":6,\"w\":6,\"h\":6,\"i\":\"3\"},\"id\":\"61eea3b0-80dc-11e8-aa73-ef7f31994eb4\",\"type\":\"visualization\",\"version\":\"6.2.4\",\"embeddableConfig\":{\"mapZoom\":14,\"mapCenter\":[45.48095672008698,9.185729026794435]}},{\"panelIndex\":\"4\",\"gridData\":{\"x\":6,\"y\":6,\"w\":6,\"h\":6,\"i\":\"4\"},\"id\":\"17dd4e20-80dc-11e8-aa73-ef7f31994eb4\",\"type\":\"visualization\",\"version\":\"6.2.4\",\"embeddableConfig\":{\"mapZoom\":14,\"mapCenter\":[45.48390545647862,9.190278053283693]}}]",
+      "optionsJSON": "{\"darkTheme\":false,\"hidePanelTitles\":false,\"useMargins\":true}",
+      "version": 1,
+      "timeRestore": false,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"language\":\"lucene\",\"query\":\"\"},\"filter\":[],\"highlightAll\":true,\"version\":true}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "eed6a3b0-80da-11e8-aa73-ef7f31994eb4",
+    "_type": "visualization",
+    "_source": {
+      "title": "Country Code",
+      "visState": "{\"title\":\"Country Code\",\"type\":\"input_control_vis\",\"params\":{\"controls\":[{\"id\":\"1530853750680\",\"indexPattern\":\"2379c330-80d2-11e8-9bdd-4bb9df398862\",\"fieldName\":\"country\",\"label\":\"Country Code\",\"type\":\"range\",\"options\":{\"decimalPlaces\":0,\"step\":1}}],\"updateFiltersOnChange\":false,\"useTimeFilter\":true},\"aggs\":[]}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "30f8e050-80db-11e8-aa73-ef7f31994eb4",
+    "_type": "visualization",
+    "_source": {
+      "title": "Internet Traffic Volume",
+      "visState": "{\"title\":\"Internet Traffic Volume\",\"type\":\"input_control_vis\",\"params\":{\"controls\":[{\"id\":\"1530853928503\",\"indexPattern\":\"2379c330-80d2-11e8-9bdd-4bb9df398862\",\"fieldName\":\"internet\",\"label\":\"Internet Traffic Volume\",\"type\":\"range\",\"options\":{\"decimalPlaces\":0,\"step\":1}}],\"updateFiltersOnChange\":false,\"useTimeFilter\":false},\"aggs\":[]}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "9f14a8f0-80d9-11e8-aa73-ef7f31994eb4",
+    "_type": "visualization",
+    "_source": {
+      "title": "Total Records",
+      "visState": "{\"title\":\"Total Records\",\"type\":\"region_map\",\"params\":{\"legendPosition\":\"bottomright\",\"addTooltip\":true,\"colorSchema\":\"Greens\",\"selectedLayer\":{\"name\":\"Milano Grid\",\"url\":\"http://localhost:5601/bundles/milano-grid.geojson\",\"fields\":[{\"name\":\"cellId\",\"description\":\"Grid ID\"}],\"format\":{\"type\":\"geojson\"},\"meta\":{\"feature_collection_path\":\"data\"},\"layerId\":\"self_hosted.Milano Grid\"},\"selectedJoinField\":{\"name\":\"cellId\",\"description\":\"Grid ID\"},\"isDisplayWarning\":true,\"wms\":{\"enabled\":false,\"options\":{\"format\":\"image/png\",\"transparent\":true},\"baseLayersAreLoaded\":{},\"tmsLayers\":[{\"id\":\"road_map\",\"url\":\"https://tiles.maps.elastic.co/v2/default/{z}/{x}/{y}.png?elastic_tile_service_tos=agree&my_app_name=kibana&my_app_version=6.2.4&license=76a7fc3c-824c-4fa8-8e1a-f1e8f3df49e8\",\"minZoom\":0,\"maxZoom\":18,\"attribution\":\"<p>&#169; <a href=\\\"http://www.openstreetmap.org/copyright\\\">OpenStreetMap</a> contributors | <a href=\\\"https://www.elastic.co/elastic-maps-service\\\">Elastic Maps Service</a></p>&#10;\",\"subdomains\":[]}],\"selectedTmsLayer\":{\"id\":\"road_map\",\"url\":\"https://tiles.maps.elastic.co/v2/default/{z}/{x}/{y}.png?elastic_tile_service_tos=agree&my_app_name=kibana&my_app_version=6.2.4&license=76a7fc3c-824c-4fa8-8e1a-f1e8f3df49e8\",\"minZoom\":0,\"maxZoom\":18,\"attribution\":\"<p>&#169; <a href=\\\"http://www.openstreetmap.org/copyright\\\">OpenStreetMap</a> contributors | <a href=\\\"https://www.elastic.co/elastic-maps-service\\\">Elastic Maps Service</a></p>&#10;\",\"subdomains\":[]}},\"mapZoom\":2,\"mapCenter\":[0,0],\"outlineWeight\":1,\"showAllShapes\":true},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"square\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"0\",\"size\":999999,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"\"}}]}",
+      "uiStateJSON": "{\"mapZoom\":12,\"mapCenter\":[45.468799075209894,9.18113708496094]}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"2379c330-80d2-11e8-9bdd-4bb9df398862\",\"filter\":[],\"query\":{\"query\":\"\",\"language\":\"lucene\"}}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "17dd4e20-80dc-11e8-aa73-ef7f31994eb4",
+    "_type": "visualization",
+    "_source": {
+      "title": "Internet Traffic  Volume",
+      "visState": "{\"title\":\"Internet Traffic  Volume\",\"type\":\"region_map\",\"params\":{\"legendPosition\":\"bottomright\",\"addTooltip\":true,\"colorSchema\":\"Yellow to Red\",\"selectedLayer\":{\"name\":\"Milano Grid\",\"url\":\"http://localhost:5601/bundles/milano-grid.geojson\",\"fields\":[{\"name\":\"cellId\",\"description\":\"Grid ID\"}],\"format\":{\"type\":\"geojson\"},\"meta\":{\"feature_collection_path\":\"data\"},\"layerId\":\"self_hosted.Milano Grid\"},\"selectedJoinField\":{\"name\":\"cellId\",\"description\":\"Grid ID\"},\"isDisplayWarning\":true,\"wms\":{\"enabled\":false,\"options\":{\"format\":\"image/png\",\"transparent\":true},\"baseLayersAreLoaded\":{},\"tmsLayers\":[{\"id\":\"road_map\",\"url\":\"https://tiles.maps.elastic.co/v2/default/{z}/{x}/{y}.png?elastic_tile_service_tos=agree&my_app_name=kibana&my_app_version=6.2.4&license=76a7fc3c-824c-4fa8-8e1a-f1e8f3df49e8\",\"minZoom\":0,\"maxZoom\":18,\"attribution\":\"<p>&#169; <a href=\\\"http://www.openstreetmap.org/copyright\\\">OpenStreetMap</a> contributors | <a href=\\\"https://www.elastic.co/elastic-maps-service\\\">Elastic Maps Service</a></p>&#10;\",\"subdomains\":[]}],\"selectedTmsLayer\":{\"id\":\"road_map\",\"url\":\"https://tiles.maps.elastic.co/v2/default/{z}/{x}/{y}.png?elastic_tile_service_tos=agree&my_app_name=kibana&my_app_version=6.2.4&license=76a7fc3c-824c-4fa8-8e1a-f1e8f3df49e8\",\"minZoom\":0,\"maxZoom\":18,\"attribution\":\"<p>&#169; <a href=\\\"http://www.openstreetmap.org/copyright\\\">OpenStreetMap</a> contributors | <a href=\\\"https://www.elastic.co/elastic-maps-service\\\">Elastic Maps Service</a></p>&#10;\",\"subdomains\":[]}},\"mapZoom\":2,\"mapCenter\":[0,0],\"outlineWeight\":1,\"showAllShapes\":true},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"internet\",\"customLabel\":\"Internet Traffic\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"square\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"size\":9999,\"order\":\"desc\",\"orderBy\":\"1\"}}]}",
+      "uiStateJSON": "{\"mapZoom\":12,\"mapCenter\":[45.44495766534174,9.223365783691408]}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"2379c330-80d2-11e8-9bdd-4bb9df398862\",\"filter\":[],\"query\":{\"query\":\"\",\"language\":\"lucene\"}}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "61eea3b0-80dc-11e8-aa73-ef7f31994eb4",
+    "_type": "visualization",
+    "_source": {
+      "title": "SMS Sent",
+      "visState": "{\"title\":\"SMS Sent\",\"type\":\"region_map\",\"params\":{\"legendPosition\":\"bottomright\",\"addTooltip\":true,\"colorSchema\":\"Blues\",\"selectedLayer\":{\"name\":\"Milano Grid\",\"url\":\"http://localhost:5601/bundles/milano-grid.geojson\",\"fields\":[{\"name\":\"cellId\",\"description\":\"Grid ID\"}],\"format\":{\"type\":\"geojson\"},\"meta\":{\"feature_collection_path\":\"data\"},\"layerId\":\"self_hosted.Milano Grid\"},\"selectedJoinField\":{\"name\":\"cellId\",\"description\":\"Grid ID\"},\"isDisplayWarning\":true,\"wms\":{\"enabled\":false,\"options\":{\"format\":\"image/png\",\"transparent\":true},\"baseLayersAreLoaded\":{},\"tmsLayers\":[{\"id\":\"road_map\",\"url\":\"https://tiles.maps.elastic.co/v2/default/{z}/{x}/{y}.png?elastic_tile_service_tos=agree&my_app_name=kibana&my_app_version=6.2.4&license=76a7fc3c-824c-4fa8-8e1a-f1e8f3df49e8\",\"minZoom\":0,\"maxZoom\":18,\"attribution\":\"<p>&#169; <a href=\\\"http://www.openstreetmap.org/copyright\\\">OpenStreetMap</a> contributors | <a href=\\\"https://www.elastic.co/elastic-maps-service\\\">Elastic Maps Service</a></p>&#10;\",\"subdomains\":[]}],\"selectedTmsLayer\":{\"id\":\"road_map\",\"url\":\"https://tiles.maps.elastic.co/v2/default/{z}/{x}/{y}.png?elastic_tile_service_tos=agree&my_app_name=kibana&my_app_version=6.2.4&license=76a7fc3c-824c-4fa8-8e1a-f1e8f3df49e8\",\"minZoom\":0,\"maxZoom\":18,\"attribution\":\"<p>&#169; <a href=\\\"http://www.openstreetmap.org/copyright\\\">OpenStreetMap</a> contributors | <a href=\\\"https://www.elastic.co/elastic-maps-service\\\">Elastic Maps Service</a></p>&#10;\",\"subdomains\":[]}},\"mapZoom\":2,\"mapCenter\":[0,0],\"outlineWeight\":1,\"showAllShapes\":true},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"sms_out\",\"customLabel\":\"SMS Sent\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"square\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"size\":9999,\"order\":\"desc\",\"orderBy\":\"1\"}}]}",
+      "uiStateJSON": "{\"mapZoom\":12,\"mapCenter\":[45.45627757127799,9.220962524414064]}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"2379c330-80d2-11e8-9bdd-4bb9df398862\",\"filter\":[],\"query\":{\"query\":\"\",\"language\":\"lucene\"}}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  }
+]

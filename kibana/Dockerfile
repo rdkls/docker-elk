@@ -1,14 +1,17 @@
-# https://github.com/elastic/kibana-docker
-FROM docker.elastic.co/kibana/kibana:5.5.3
+FROM docker.elastic.co/kibana/kibana:6.2.4
+#FROM docker.elastic.co/kibana/kibana:5.5.3
 
 # Add your kibana plugins setup here
 # Example: RUN kibana-plugin install <name|url>
-RUN kibana-plugin install https://github.com/lmangani/kibana_graph/releases/download/5.5.x/graph_vis-5.5.3.zip
-RUN kibana-plugin install https://github.com/sivasamyk/logtrail/releases/download/v0.1.20/logtrail-5.5.3-0.1.20.zip
+#RUN kibana-plugin install https://github.com/lmangani/kibana_graph/releases/download/5.5.x/graph_vis-5.5.3.zip
+#RUN kibana-plugin install https://github.com/sivasamyk/logtrail/releases/download/v0.1.20/logtrail-5.5.3-0.1.20.zip
+
+ADD files/milano-grid.geojson /usr/share/kibana/optimize/bundles
 
 USER root
 RUN yum update -y
 RUN yum install -y vim
+
 #RUN yum install -y wget
 #RUN yum install -y unzip
 #RUN yum install -y git
@@ -24,7 +27,6 @@ RUN yum install -y vim
 #WORKDIR /usr/share/kibana/plugins/kibana_graph-master
 #RUN sed -i 's/5.5.0/6.3.0/' package.json
 #RUN npm install
-
 
 # Graph plugin - dlumbrerer's kbn_network plugin
 #WORKDIR /usr/share/kibana/plugins
